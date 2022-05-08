@@ -82,3 +82,11 @@ node{
     }
         
     }
+
+
+
+withCredentials([string(credentialsId: 'docker-hub-password-pipe', variable: 'dockerHubPwd')]) {
+    // some block
+}
+
+ansiblePlaybook become: true, disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-deploy-playbook.yml'
